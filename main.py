@@ -79,14 +79,16 @@ def copyWriter(payload):
 
     response = requests.post(API_URL, headers=headers, json=payload)
     return response.json()
+    output = copyWriter({
+        "inputs": text,
+    })
+
+    return output
 
 
-output = copyWriter({
-    "inputs": text,
-})
 
 
-for i in output:
+for i in copyWriter():
     if i['entity_group'] == 'HOSPITAL' and i['word'] != "":
         location.append(i['word'])
     if i['entity_group'] == 'HCW' and i['word'] != "":
