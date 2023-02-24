@@ -63,6 +63,12 @@ uploaded_file = st.file_uploader(
     help="To activate 'wide mode', go to the hamburger menu > Settings > turn on 'wide mode'",
 )
 
+
+def copyWriter(payload):
+    response = requests.post(API_URL, headers=headers, json=payload)
+    return response.json()
+
+
 if uploaded_file is not None:
     reader = PdfReader(uploaded_file)
     print(len(reader.pages))
@@ -74,21 +80,12 @@ if uploaded_file is not None:
         # extracting text from page
         text = page.extract_text()
         print(text + '\n')
-
-def copyWriter(payload):
-
-    response = requests.post(API_URL, headers=headers, json=payload)
-    return response.json()
-    output = copyWriter({
-        "inputs": text,
-    })
-
-    return output
+        output = copyWriter({
+            "inputs": text,
+        })
 
 
-
-
-for i in copyWriter():
+for i in output:
     if i['entity_group'] == 'HOSPITAL' and i['word'] != "":
         location.append(i['word'])
     if i['entity_group'] == 'HCW' and i['word'] != "":
