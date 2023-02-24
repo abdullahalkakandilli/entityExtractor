@@ -34,8 +34,13 @@ API_URL = "https://api-inference.huggingface.co/models/StanfordAIMI/stanford-dei
 # Now, let's create a Python dictionary to store the API headers.
 headers = {"Authorization": f"Bearer {API_KEY}"}
 
-
 df = pd.DataFrame()
+person = []
+location = []
+date = []
+id = []
+company = []
+
 c2, c3 = st.columns([6, 1])
 
 with c2:
@@ -79,22 +84,18 @@ def copyWriter(payload):
 output = copyWriter({
     "inputs": text,
 })
-person = []
-location = []
-date = []
-id = []
-company = []
+
 
 for i in output:
-    if i['entity_group'] == 'HOSPITAL':
+    if i['entity_group'] == 'HOSPITAL' & i['word'] != "":
         location.append(i['word'])
-    if i['entity_group'] == 'HCW':
+    if i['entity_group'] == 'HCW' & i['word'] != "":
         person.append(i['word'])
-    if i['entity_group'] == 'DATE':
+    if i['entity_group'] == 'DATE'& i['word'] != "":
         date.append(i['word'])
-    if i['entity_group'] == 'ID':
+    if i['entity_group'] == 'ID'& i['word'] != "":
         id.append(i['word'])
-    if i['entity_group'] == 'VENDOR':
+    if i['entity_group'] == 'VENDOR'& i['word'] != "":
         company.append(i['word'])
 
 
