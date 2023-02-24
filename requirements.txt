@@ -1,0 +1,6 @@
+streamlit
+streamlit_pandas_profiling
+transformers
+torch
+pytesseract
+tesseract
