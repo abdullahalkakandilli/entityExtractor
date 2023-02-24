@@ -87,7 +87,7 @@ if uploaded_file is not None:
         })
 
         for j in output:
-            text.replace(j['word'], j['entity_group'], re.IGNORECASE)
+            text = text.replace(j['word'], j['entity_group'], re.IGNORECASE)
 
 
 
