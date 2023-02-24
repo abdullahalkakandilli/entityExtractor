@@ -18,6 +18,10 @@ def _max_width_():
     """,
         unsafe_allow_html=True,
     )
+
+st.set_page_config(page_icon="images/icon.png", page_title="Entity Extractor")
+
+
 API_KEY = st.sidebar.text_input(
     "Enter your HuggingFace API key",
     help="Once you created you HuggingFace account, you can get your free API token in your settings page: https://huggingface.co/settings/tokens",
@@ -30,7 +34,6 @@ API_URL = "https://api-inference.huggingface.co/models/StanfordAIMI/stanford-dei
 # Now, let's create a Python dictionary to store the API headers.
 headers = {"Authorization": f"Bearer {API_KEY}"}
 
-st.set_page_config(page_icon="images/icon.png", page_title="Entity Extractor")
 
 c2, c3 = st.columns([6, 1])
 
