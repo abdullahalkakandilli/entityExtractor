@@ -40,7 +40,7 @@ location = []
 date = []
 id = []
 company = []
-
+output = []
 c2, c3 = st.columns([6, 1])
 
 with c2:
