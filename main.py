@@ -96,17 +96,13 @@ for i in output:
     if i['entity_group'] == 'VENDOR' and i['word'] != "":
         company.append(i['word'])
 
-person_ = {'person': person}
-location_ = {'location': location}
-date_ = {'date': date}
-id_ = {'id': id}
-company_ = {'company': company}
 
-df['person'] = person_
-df['location'] = location_
-df['date'] = date_
-df['id'] = id_
-df['company'] = company_
+
+df['person'] = person
+df['location'] = location
+df['date'] = date
+df['id'] = id
+df['company'] = company
 
 
 c29, c30, c31 = st.columns([1, 1, 2])
