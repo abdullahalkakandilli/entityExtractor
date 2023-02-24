@@ -78,5 +78,27 @@ def copyWriter(payload):
 output = copyWriter({
     "inputs": text,
 })
+person = []
+location = []
+date = []
+id = []
+company = []
 
-st.write(output)
+for i in output:
+    if i['entity_group'] == 'HOSPITAL':
+        location.append(i['word'])
+    if i['entity_group'] == 'HCW':
+        person.append(i['word'])
+    if i['entity_group'] == 'DATE':
+        date.append(i['word'])
+    if i['entity_group'] == 'ID':
+        id.append(i['word'])
+    if i['entity_group'] == 'VENDOR':
+        company.append(i['word'])
+
+st.write(person)
+st.write(location)
+st.write(date)
+st.write(id)
+st.write(company)
+
