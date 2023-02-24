@@ -86,7 +86,7 @@ if uploaded_file is not None:
 
 
         for j in output:
-            new_nums = '*' * len(j['entity_group'])
+            new_nums = 'X' * len(j['entity_group'])
             text = text[:j['start']]  + new_nums + text[j['end']:]
 
 
