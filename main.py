@@ -79,4 +79,4 @@ output = copyWriter({
     "inputs": text,
 })
 
-st.write(text)
+st.write(output)
