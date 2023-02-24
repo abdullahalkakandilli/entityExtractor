@@ -70,7 +70,7 @@ def copyWriter(payload):
     response = requests.post(API_URL, headers=headers, json=payload)
     return response.json()
 
-
+merged_text = ""
 if uploaded_file is not None:
     reader = PdfReader(uploaded_file)
     print(len(reader.pages))
@@ -80,14 +80,14 @@ if uploaded_file is not None:
         page = reader.pages[i]
 
         # extracting text from page
-        text =+ page.extract_text()
-        print(text + '\n')
+        merged_text =+ page.extract_text()
+        print(merged_text + '\n')
         output = copyWriter({
-            "inputs": text,
+            "inputs": merged_text,
         })
 
 
-    st.write(text)
+    st.write(merged_text)
 
 
 st.write(output)
