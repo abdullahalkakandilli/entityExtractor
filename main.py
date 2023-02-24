@@ -1,3 +1,5 @@
+import re
+
 import pandas as pd
 import streamlit as st
 import requests
@@ -84,10 +86,8 @@ if uploaded_file is not None:
             "inputs": text,
         })
 
-
         for j in output:
-            new_nums = 'X' * len(j['entity_group'])
-            text = text[:j['start']]  + new_nums + text[j['end']:]
+            text.replace(j['word'], j['entity_group'], re.IGNORECASE)
 
 
 
