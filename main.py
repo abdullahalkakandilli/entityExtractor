@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import requests
 from PyPDF2 import PdfReader
-
+from functionforDownloadButtons import download_button
 
 
 def _max_width_():
@@ -35,6 +35,7 @@ API_URL = "https://api-inference.huggingface.co/models/StanfordAIMI/stanford-dei
 headers = {"Authorization": f"Bearer {API_KEY}"}
 
 
+df = pd.DataFrame()
 c2, c3 = st.columns([6, 1])
 
 with c2:
@@ -96,9 +97,18 @@ for i in output:
     if i['entity_group'] == 'VENDOR':
         company.append(i['word'])
 
-st.write(person)
-st.write(location)
-st.write(date)
-st.write(id)
-st.write(company)
 
+df['person'] = person
+df['location'] = location
+df['date'] = date
+df['id'] = id
+df['company'] = company
+
+c29, c30, c31 = st.columns([1, 1, 2])
+with c29:
+
+    CSVButton = download_button(
+        df,
+        "FlaggedFile.csv",
+        "Download to CSV",
+    )
