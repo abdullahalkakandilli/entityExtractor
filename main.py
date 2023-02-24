@@ -85,12 +85,9 @@ if uploaded_file is not None:
         output = copyWriter({
             "inputs": text,
         })
-        text.lower()
-        for j in output:
-            text = text.replace(j['word'].lower(), j['entity_group'], re.IGNORECASE)
 
 
+    st.write(text)
 
 
-st.write(text)
 st.write(output)
