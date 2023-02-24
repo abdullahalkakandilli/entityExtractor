@@ -84,10 +84,13 @@ if uploaded_file is not None:
         merged_text += text
 
         print(merged_text + '\n')
+
         output = copyWriter({
             "inputs": merged_text,
         })
+        for out_ in output:
 
+            merged_text = re.sub(re.escape(out_['word']), out_['entity_group'], merged_text, flags=re.IGNORECASE)
 
     st.write(merged_text)
 
