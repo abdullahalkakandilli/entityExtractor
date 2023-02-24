@@ -108,13 +108,13 @@ df = df.append(pd.DataFrame(date_))
 df = df.append(pd.DataFrame(id_))
 df = df.append(pd.DataFrame(company_))
 
-
+new_df = df.dropna()
 
 c29, c30, c31 = st.columns([1, 1, 2])
 with c29:
 
     CSVButton = download_button(
-        df,
+        new_df,
         "FlaggedFile.csv",
         "Download to CSV",
     )
