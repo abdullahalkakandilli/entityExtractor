@@ -83,9 +83,11 @@ if uploaded_file is not None:
         output = copyWriter({
             "inputs": text,
         })
-        num_ = j['end'] - j['start']
+
+
         for j in output:
-            text = text[:j['start']]  + "*"*num_ + text[j['end']:]
+            new_nums = '*' * len(j['entity-group'])
+            text = text[:j['start']]  + new_nums + text[j['end']:]
 
 
 
