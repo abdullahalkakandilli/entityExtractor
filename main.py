@@ -89,8 +89,8 @@ if uploaded_file is not None:
             "inputs": merged_text,
         })
         for out_ in output:
-
-            merged_text = re.sub(re.escape(out_['word']), out_['entity_group'], merged_text, flags=re.IGNORECASE)
+            old_pattern = re.sub(" +", r"\s*", re.escape(out_['word']))
+            merged_text = re.sub(re.escape(old_pattern), out_['entity_group'], merged_text, flags=re.IGNORECASE)
 
     st.write(merged_text)
 
