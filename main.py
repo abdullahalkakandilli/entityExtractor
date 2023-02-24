@@ -81,7 +81,8 @@ if uploaded_file is not None:
 
         # extracting text from page
         text = page.extract_text()
-        merged_text =+ text
+        merged_text += text
+
         print(merged_text + '\n')
         output = copyWriter({
             "inputs": merged_text,
