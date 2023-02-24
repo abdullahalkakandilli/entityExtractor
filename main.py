@@ -87,15 +87,15 @@ output = copyWriter({
 
 
 for i in output:
-    if i['entity_group'] == 'HOSPITAL' & i['word'] != "":
+    if i['entity_group'] == 'HOSPITAL' and i['word'] != "":
         location.append(i['word'])
-    if i['entity_group'] == 'HCW' & i['word'] != "":
+    if i['entity_group'] == 'HCW' and i['word'] != "":
         person.append(i['word'])
-    if i['entity_group'] == 'DATE'& i['word'] != "":
+    if i['entity_group'] == 'DATE'and i['word'] != "":
         date.append(i['word'])
-    if i['entity_group'] == 'ID'& i['word'] != "":
+    if i['entity_group'] == 'ID'and i['word'] != "":
         id.append(i['word'])
-    if i['entity_group'] == 'VENDOR'& i['word'] != "":
+    if i['entity_group'] == 'VENDOR' and i['word'] != "":
         company.append(i['word'])
 
 
