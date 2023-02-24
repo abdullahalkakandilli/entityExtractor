@@ -84,25 +84,31 @@ if uploaded_file is not None:
             "inputs": text,
         })
 
-
 for i in output:
     if i['entity_group'] == 'HOSPITAL' and i['word'] != "":
         location.append(i['word'])
     if i['entity_group'] == 'HCW' and i['word'] != "":
         person.append(i['word'])
-    if i['entity_group'] == 'DATE'and i['word'] != "":
+    if i['entity_group'] == 'DATE' and i['word'] != "":
         date.append(i['word'])
-    if i['entity_group'] == 'ID'and i['word'] != "":
+    if i['entity_group'] == 'ID' and i['word'] != "":
         id.append(i['word'])
     if i['entity_group'] == 'VENDOR' and i['word'] != "":
         company.append(i['word'])
 
+person_ = {'person': person}
+location_ = {'location': location}
+date_ = {'date': date}
+id_ = {'id': id}
+company_ = {'company': company}
 
-df['person'] = person
-df['location'] = location
-df['date'] = date
-df['id'] = id
-df['company'] = company
+df = df.append(pd.DataFrame(person_))
+df = df.append(pd.DataFrame(location_))
+df = df.append(pd.DataFrame(date_))
+df = df.append(pd.DataFrame(id_))
+df = df.append(pd.DataFrame(company_))
+
+
 
 c29, c30, c31 = st.columns([1, 1, 2])
 with c29:
