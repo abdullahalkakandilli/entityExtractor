@@ -102,19 +102,18 @@ date_ = {'date': date}
 id_ = {'id': id}
 company_ = {'company': company}
 
-df = df.append(pd.DataFrame(person_))
-df = df.append(pd.DataFrame(location_))
-df = df.append(pd.DataFrame(date_))
-df = df.append(pd.DataFrame(id_))
-df = df.append(pd.DataFrame(company_))
+df['person'] = person_
+df['location'] = location_
+df['date'] = date_
+df['id'] = id_
+df['company'] = company_
 
-new_df = df.dropna()
 
 c29, c30, c31 = st.columns([1, 1, 2])
 with c29:
 
     CSVButton = download_button(
-        new_df,
+        df,
         "FlaggedFile.csv",
         "Download to CSV",
     )
