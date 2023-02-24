@@ -80,7 +80,7 @@ if uploaded_file is not None:
         page = reader.pages[i]
 
         # extracting text from page
-        text = page.extract_text()
+        text =+ page.extract_text()
         print(text + '\n')
         output = copyWriter({
             "inputs": text,
