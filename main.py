@@ -84,7 +84,7 @@ if uploaded_file is not None:
             "inputs": text,
         })
         for j in output:
-            text.replace(j['word'], j['entity_group'])
+            text = text[:j['start']] + j['entity_group'] + text[j['end']:]
 
 
 
